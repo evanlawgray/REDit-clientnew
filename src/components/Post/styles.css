@@ -1,0 +1,33 @@
+.post {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.postLink {
+    width: 100%;
+    margin: 1rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #551A8B;
+}
+
+.postDescription {
+    width: 100%;
+}
+
+.voteButton {
+    text-align: left;
+}
+
+.pointer {
+    transform: translateY(5px);
+}
+
+.categoriesChips {
+    width: 92%;
+    margin: 0;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
