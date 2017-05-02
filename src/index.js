@@ -6,11 +6,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch
-  // Link,
-  // Redirect
 } from 'react-router-dom';
 
-// Needed for onTouchTap (Material UI)
+// Do not delete Needed for onTouchTap (Material UI)
 // http://stackoverflow.com/a/34015469/988941
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
