@@ -14,7 +14,18 @@ class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.obj,
+  children: PropTypes.shape({
+    $$typeof: PropTypes.symbol,
+    key: PropTypes.null,
+    props: PropTypes.obj,
+    ref: PropTypes.null,
+    type: PropTypes.func,
+    _owner: PropTypes.null,
+    _store: PropTypes.obj,
+    _self: PropTypes.null,
+    _source: PropTypes.obj,
+    __proto__: PropTypes.obj
+  }),
 };
 
 export default App;

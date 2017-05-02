@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
-import { upvotePost, sortByPopularity, sortByDate } from '../../redux/actions';
+import { getPosts, upvotePost, sortByPopularity, sortByDate } from '../../redux/actions';
 
 import PostList from './PostList';
 import PostToolBar from '../../components/PostToolbar';
@@ -14,6 +14,10 @@ class PostListContainer extends Component {
     this.updateVote = this.updateVote.bind(this);
     this.sortByDate = this.sortByDate.bind(this);
     this.sortByPopularity = this.sortByPopularity.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getPosts());
   }
 
   updateVote(upvotedPost) {
@@ -53,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 PostListContainer.propTypes = {
-  posts: PropTypes.arr,
+  posts: PropTypes.arrayOf(PropTypes.object),
   dispatch: PropTypes.func.isRequired
 };
 

@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 
 import reduxLogger from 'redux-logger';
 
@@ -11,7 +12,8 @@ export default createStore(
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(
-    reduxLogger
+    reduxLogger,
+    thunk
   )
 );
 

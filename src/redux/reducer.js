@@ -1,20 +1,23 @@
-import { data } from '../mock-data';
-
 import {
+  GET_WEEKS,
+  GET_POSTS,
   UPVOTE_POST,
   SORT_BY_POPULARITY,
   SORT_BY_DATE
 } from './actions';
 
-const initialState = data;
+const initialState = [];
 
-export function postsReducer(state = initialState.posts, action) {
+export function postsReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_POSTS:
+      return [
+        ...action.payload.posts
+      ]
     case UPVOTE_POST:
-      return state.map((post) => {
-        if (action.postId === post.id) post.votes++;
-        return post;
-      });
+      return [
+        ...action.payload.posts
+      ]
     case SORT_BY_POPULARITY:
       let newState = [].concat(state);
       return newState.sort((a, b) => {
@@ -29,8 +32,12 @@ export function postsReducer(state = initialState.posts, action) {
   }
 }
 
-export function weeksReducer(state = initialState.weeks, action) {
+export function weeksReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_WEEKS:
+      return [
+        ...action.payload.weeks
+      ]
     default: return state;
   }
 }
