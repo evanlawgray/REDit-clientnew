@@ -8,11 +8,9 @@ import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
 function generateCategoriesChips( categories ) {
-  const newCategories = categories.map(( category, i ) => (
+ categories.map(( category, i ) => (
     <Chip key={category.title + i}>{category.title}</Chip>
   ));
-
-  return newCategories;
 }
 
 const Post = ({ post, updateVote }) => {
