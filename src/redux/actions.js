@@ -52,10 +52,6 @@ export const upvotePost = post => {
       voteTotal: post.votes + 1
     }
 
-    console.log(post.id, post.votes);
-
-    const data = JSON.stringify(payload);
-
     const init = {
       method: 'POST',
       headers: JSON.stringify(headers),

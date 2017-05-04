@@ -22,6 +22,7 @@ import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
 import PostList from './containers/PostList';
 import Welcome from './components/Welcome';
+import Login from './containers/Login';
 
 import './styles/index.css';
 
@@ -33,7 +34,7 @@ ReactDOM.render(
           <App>
             <Switch>
               <Route exact path="/" component={Welcome} />
-              <Route path="/login" render={() => <form><label htmlFor="user-input" /><input id="user-input" /></form>} />
+              <Route path="/login" component={Login} />
               <Route path="/new-post" render={() => <button>Submit a new post</button>} />
               <Route path="/posts" component={PostList} />
               <Route render={() => <h1>Page not found</h1>} />

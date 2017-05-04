@@ -16,9 +16,9 @@ const Categories = ({ weeks }) => {
         weeks.length > 0 &&
         weeks.map(week => (
           <Week
-            key={week.id}
-            title={week.title}
-            categories={week.categories}
+            key={week.week + Date.now()}
+            title={week.week}
+            lessons={week.lessons}
           />
         ))
       }
