@@ -31,3 +31,5 @@ MainLayout.propTypes = {
   }),
 };
 
+export default MainLayout;
+
