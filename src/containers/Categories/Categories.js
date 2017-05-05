@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles.css';
 
 import Week from '../../components/Week';
 
 const Categories = ({ weeks, getPosts }) => {
   return (
-    <ul>
+    <ul className={styles.weeksList}>
       {
-        weeks.length < 0 &&
-        <h3>Loading Weeks...</h3>
+        weeks.length <= 0 &&
+        <h3>Loading Lessons...</h3>
       }
       {
         weeks.length > 0 &&

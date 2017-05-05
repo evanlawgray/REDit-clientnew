@@ -7,9 +7,16 @@ import Card from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
+const chipStyles = {
+  margin: "0 3px"
+}
+
 function generateCategoriesChips( categories ) {
- categories.map(( category, i ) => (
-    <Chip key={category.title + i}>{category.title}</Chip>
+ return categories.map(( category, i ) => (
+    <Chip
+      key={category + i + Date.now()}
+      style={chipStyles}
+    >{category}</Chip>
   ));
 }
 
@@ -32,7 +39,7 @@ const Post = ({ post, updateVote }) => {
         </svg>
       </FlatButton>
       <div className={styles.categoriesChips}>
-        {generateCategoriesChips(post.lessons)}
+        {generateCategoriesChips( post.tags )}
       </div>
     </Card>
   );

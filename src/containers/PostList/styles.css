@@ -1,5 +1,16 @@
 .postList {
-    width: 80%;
     margin: 0 auto;
-    padding-left: 256px;
+    margin-left: 256px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.noPostsMessage {
+    width: 265px;
+    margin: 20px auto;
+    color: black;
+    display: inline-block;
 }

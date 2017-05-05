@@ -1,11 +1,12 @@
 .post {
-    margin: 20px 0;
+    width: 95%;
+    margin: 20px auto;
     padding: 20px;
 }
 
 .postLink {
     width: 100%;
-    margin: 1rem;
+    margin: 20px 0;
     font-size: 1.15rem;
     font-weight: 800;
     text-decoration: none;
@@ -25,7 +26,7 @@
 }
 
 .categoriesChips {
-    width: 92%;
+    width: 100%;
     margin: 0;
     display: inline-flex;
     justify-content: flex-end;

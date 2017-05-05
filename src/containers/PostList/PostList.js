@@ -9,8 +9,8 @@ const PostList = ({ posts, updateVote }) => {
   return (
     <div className={styles.postList}>
       {
-        posts.length < 0 &&
-        <h3>Loading Posts...</h3>
+        posts.length <= 0 &&
+        <p className={styles.noPostsMessage}>There are no posts for this lesson...</p>
       }
       {
         posts.length > 0 &&
