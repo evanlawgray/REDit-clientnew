@@ -8,21 +8,29 @@ import styles from './styles.css';
 const PostList = ({ posts, updateVote }) => {
   return (
     <div className={styles.postList}>
-      {posts.map(post => (
-        <Post
-          key={post.id}
-          post={post}
-          updateVote={updateVote}
-        />
-      ))}
+      {
+        posts.length < 0 &&
+        <h3>Loading Posts...</h3>
+      }
+      {
+        posts.length > 0 &&
+        posts.map( post => (
+          <Post
+            key={post.post_id}
+            post={post}
+            updateVote={updateVote}
+          />
+        ))
+      }
     </div>
   );
 };
 
 PostList.propTypes = {
-  posts: PropTypes.arr,
+  posts: PropTypes.arrayOf(PropTypes.object),
   updateVote: PropTypes.func,
 };
 
 export default PostList;
+
 
