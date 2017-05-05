@@ -6,22 +6,21 @@ import List from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
-function generateCategoriesList(categories) {
-  const categoriesList = categories.map((category, i) => (
+function generateLessonsList(lessons, getPosts) {
+  return lessons.map((lesson, i) => (
     <MenuItem
-      key={category+i}
-      primaryText={category}
+      key={lesson.id}
+      primaryText={lesson.title}
+      onTouchTap={() => getPosts(lesson.id)}
     />
   ));
-
-  return categoriesList;
 }
 
-const Week = ({ title, categories }) => (
+const Week = ({ title, lessons, getPosts }) => (
   <List>
     <Subheader>{title}</Subheader>
     <Divider />
-    {generateCategoriesList(categories)}
+    {generateLessonsList(lessons, getPosts)}
   </List>
 );
 
