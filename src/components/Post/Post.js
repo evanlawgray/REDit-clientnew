@@ -7,12 +7,10 @@ import Card from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
-function generateCategoriesChips(categories) {
-  const newCategories = categories.map((category, i) => (
-    <Chip key={category + i}>{category}</Chip>
+function generateCategoriesChips( categories ) {
+ categories.map(( category, i ) => (
+    <Chip key={category.title + i}>{category.title}</Chip>
   ));
-
-  return newCategories;
 }
 
 const Post = ({ post, updateVote }) => {
@@ -20,7 +18,9 @@ const Post = ({ post, updateVote }) => {
     <Card className={styles.post}>
       <a className={styles.postLink} href={post.link}>{post.title}</a>
       <p className={styles.postDescription}>{post.description}</p>
-      <FlatButton className={styles.voteButton} onTouchTap={() => updateVote(post)}>
+      <FlatButton label={`Vote ${post.votes}`}
+                  className={styles.voteButton}
+                  onTouchTap={() => updateVote(post)}>
         <svg
           className={styles.pointer}
           xmlns="http://www.w3.org/2000/svg"
@@ -30,17 +30,24 @@ const Post = ({ post, updateVote }) => {
         >
           <path d="M9 6l-4 4h8z" />
         </svg>
-        Vote {post.votes}
       </FlatButton>
       <div className={styles.categoriesChips}>
-        {generateCategoriesChips(post.categories)}
+        {generateCategoriesChips(post.lessons)}
       </div>
     </Card>
   );
 };
 
 Post.propTypes = {
-  post: PropTypes.obj,
+  post: PropTypes.shape({
+    id: PropTypes.num,
+    author: PropTypes.string,
+    votes: PropTypes.num,
+    categories: PropTypes.arr,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    link: PropTypes.string
+  }),
   updateVote: PropTypes.func.isRequired
 };
 
