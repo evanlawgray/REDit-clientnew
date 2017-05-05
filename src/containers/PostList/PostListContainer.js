@@ -53,9 +53,8 @@ function mapStateToProps(state) {
 }
 
 PostListContainer.propTypes = {
-  posts: PropTypes.arr,
+  posts: PropTypes.arrayOf(PropTypes.object),
   dispatch: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(PostListContainer);
-
