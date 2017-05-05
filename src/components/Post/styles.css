@@ -18,6 +18,8 @@
 }
 
 .voteButton {
+    width: 50%;
+    display: inline-block;
     text-align: left;
 }
 
@@ -26,7 +28,7 @@
 }
 
 .categoriesChips {
-    width: 100%;
+    width: 50%;
     margin: 0;
     display: inline-flex;
     justify-content: flex-end;

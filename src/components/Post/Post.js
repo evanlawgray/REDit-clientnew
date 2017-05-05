@@ -25,19 +25,20 @@ const Post = ({ post, updateVote }) => {
     <Card className={styles.post}>
       <a className={styles.postLink} href={post.link}>{post.title}</a>
       <p className={styles.postDescription}>{post.description}</p>
-      <FlatButton label={`Vote ${post.votes}`}
-                  className={styles.voteButton}
-                  onTouchTap={() => updateVote(post)}>
-        <svg
-          className={styles.pointer}
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-        >
-          <path d="M9 6l-4 4h8z" />
-        </svg>
-      </FlatButton>
+      <div className={styles.voteButton}>
+        <FlatButton label={`Vote ${post.votes}`}
+                    onTouchTap={() => updateVote(post)}>
+          <svg
+            className={styles.pointer}
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+          >
+            <path d="M9 6l-4 4h8z" />
+          </svg>
+        </FlatButton>
+      </div>
       <div className={styles.categoriesChips}>
         {generateCategoriesChips( post.tags )}
       </div>
