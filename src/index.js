@@ -22,7 +22,7 @@ import store from './redux/store';
 
 import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
-import PostList from './containers/PostList';
+import PostListContainer from './containers/PostList';
 import Welcome from './components/Welcome';
 
 import './styles/index.css';
@@ -37,7 +37,7 @@ ReactDOM.render(
               <Route exact path="/" component={Welcome} />
               <Route path="/login" render={() => <form><label htmlFor="user-input" /><input id="user-input" /></form>} />
               <Route path="/new-post" render={() => <button>Submit a new post</button>} />
-              <Route path="/posts" component={PostList} />
+              <Route path="/lessons/:lessonid/posts" component={PostListContainer} />
               <Route render={() => <h1>Page not found</h1>} />
             </Switch>
           </App>

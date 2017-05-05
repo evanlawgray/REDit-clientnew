@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import MenuItem from 'material-ui/MenuItem';
 import List from 'material-ui/List';
@@ -8,11 +9,15 @@ import Divider from 'material-ui/Divider';
 
 function generateLessonsList(lessons, getPosts) {
   return lessons.map((lesson, i) => (
-    <MenuItem
-      key={lesson.id}
-      primaryText={lesson.title}
-      onTouchTap={() => getPosts(lesson.id)}
-    />
+        <Link
+          key={`linkto${lesson.id}`}
+          to={`/lessons/${lesson.id}/posts`}
+        >
+          <MenuItem
+            key={lesson.id}
+            primaryText={lesson.title}
+          />
+        </Link>
   ));
 }
 
