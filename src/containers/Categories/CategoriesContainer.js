@@ -9,7 +9,22 @@ import SiteIcon from 'material-ui/svg-icons/communication/import-contacts';
 
 import Categories from './Categories';
 
+import { getPosts, getWeeks } from '../../redux/actions';
+
 class CategoriesContainer extends Component {
+  constructor() {
+    super();
+
+    this.getPostsByLesson = this.getPostsByLesson.bind(this);
+  }
+
+  getPostsByLesson(lessonId) {
+    this.props.dispatch(getPosts(lessonId));
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getWeeks());
+  }
 
   render() {
     return (
@@ -20,6 +35,7 @@ class CategoriesContainer extends Component {
         />
         <Categories
           weeks={this.props.weeks}
+          getPosts={this.getPostsByLesson}
         />
       </Drawer>
     );
@@ -33,7 +49,7 @@ function mapStateToProps(state) {
 }
 
 CategoriesContainer.propTypes = {
-  weeks: PropTypes.obj
+  weeks: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default connect(mapStateToProps)(CategoriesContainer);
