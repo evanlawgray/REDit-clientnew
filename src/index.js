@@ -6,9 +6,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch
+  // Link,
+  // Redirect
 } from 'react-router-dom';
 
-// Do not delete Needed for onTouchTap (Material UI)
+// Needed for onTouchTap (Material UI)
 // http://stackoverflow.com/a/34015469/988941
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -22,7 +24,6 @@ import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
 import PostList from './containers/PostList';
 import Welcome from './components/Welcome';
-import Login from './containers/Login';
 
 import './styles/index.css';
 
@@ -34,7 +35,7 @@ ReactDOM.render(
           <App>
             <Switch>
               <Route exact path="/" component={Welcome} />
-              <Route path="/login" component={Login} />
+              <Route path="/login" render={() => <form><label htmlFor="user-input" /><input id="user-input" /></form>} />
               <Route path="/new-post" render={() => <button>Submit a new post</button>} />
               <Route path="/posts" component={PostList} />
               <Route render={() => <h1>Page not found</h1>} />

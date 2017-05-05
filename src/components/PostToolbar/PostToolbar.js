@@ -5,7 +5,7 @@ import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
 
 const toolbarStyles = {
-  width: 'auto',
+  width: '84%',
   marginLeft: '256px',
   color: '#8B8B8B'
 };

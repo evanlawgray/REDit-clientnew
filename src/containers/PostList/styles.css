@@ -1,6 +1,5 @@
 .postList {
-    box-sizing: border-box;
-    width: 100vw;
+    width: 80%;
     margin: 0 auto;
     padding-left: 256px;
 }

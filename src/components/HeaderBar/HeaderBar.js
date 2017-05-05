@@ -14,7 +14,7 @@ const HeaderBar = () => (
     iconElementRight={
       <div>
         <FlatButton label="Share a New Link" style={buttonStyles} />
-        <FlatButton label="Login" style={buttonStyles} />
+        <FlatButton label="Logout" style={buttonStyles} />
       </div>
     }
   />

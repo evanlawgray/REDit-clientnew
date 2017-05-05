@@ -9,13 +9,7 @@ import SiteIcon from 'material-ui/svg-icons/communication/import-contacts';
 
 import Categories from './Categories';
 
-import { getWeeks } from '../../redux/actions';
-
 class CategoriesContainer extends Component {
-
-  componentDidMount() {
-    this.props.dispatch(getWeeks());
-  }
 
   render() {
     return (
@@ -39,7 +33,7 @@ function mapStateToProps(state) {
 }
 
 CategoriesContainer.propTypes = {
-  weeks: PropTypes.arrayOf(PropTypes.object)
+  weeks: PropTypes.obj
 };
 
 export default connect(mapStateToProps)(CategoriesContainer);
