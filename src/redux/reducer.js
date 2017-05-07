@@ -8,6 +8,12 @@ import {
 
 const initialState = [];
 
+// export function authReducer(state = initialState, action) {
+//   switch(action.type) {
+//     case
+//   }
+// }
+
 export function postsReducer(state = initialState, action) {
   switch (action.type) {
     case GET_POSTS:

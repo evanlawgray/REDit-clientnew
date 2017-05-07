@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './styles.css';
 
@@ -14,7 +15,9 @@ const HeaderBar = () => (
     iconElementRight={
       <div>
         <FlatButton label="Share a New Link" style={buttonStyles} />
-        <FlatButton label="Login" style={buttonStyles} />
+        <Link to={'/login'}>
+          <FlatButton label="Login" style={buttonStyles} />
+        </Link>
       </div>
     }
   />

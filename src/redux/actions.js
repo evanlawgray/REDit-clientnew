@@ -1,8 +1,46 @@
+export const LOGIN_USER = 'LOGIN_USER';
 export const GET_WEEKS = 'GET_WEEKS';
 export const GET_POSTS = 'GET_POSTS';
 export const UPVOTE_POST = 'upvotePost';
 export const SORT_BY_POPULARITY = 'sortByPopularity';
 export const SORT_BY_DATE = 'sortByDate';
+
+export const loginUser = (data) => {
+  return dispatch => {
+
+    const headers = new Headers({
+      "Content-Type": "application/json"
+    });
+
+    const payload = JSON.stringify({
+      ...data
+    });
+
+    const init = {
+      method: 'POST',
+      headers: headers,
+      body: payload,
+      mode: 'cors',
+      cache: 'default'
+    };
+
+    const myRequest = new Request ( 'http://localhost:3001/auth/login', init );
+
+    fetch( myRequest )
+    .then( response => {
+      if( !response.ok ) return Promise.reject();
+      return response.json();
+    }).then( json => {
+      console.log(json);
+      // dispatch({
+      //   type: loginUser,
+      //   payload: {
+      //     ...data
+      //   }
+      // });
+    });
+  }
+}
 
 export const getWeeks = () => {
   return dispatch => {
