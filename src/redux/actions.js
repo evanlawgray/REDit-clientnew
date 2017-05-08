@@ -22,7 +22,7 @@ export const loginUser = (data) => {
       body: payload,
       mode: 'cors',
       cache: 'default',
-      credentials: 'include'
+      credentials: 'cors'
     };
 
     const myRequest = new Request ( 'http://localhost:3001/auth/login', init );
