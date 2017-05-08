@@ -23,7 +23,7 @@ class CategoriesContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getWeeks());
+    this.props.dispatch(getWeeks(localStorage.getItem('userToken')));
   }
 
   render() {

@@ -56,7 +56,6 @@ class LoginForm extends Gandalf{
 
     if(!data) return;
 
-    console.log(data);
     this.props.dispatch(loginUser(data));
   }
 

@@ -21,7 +21,8 @@ export const loginUser = (data) => {
       headers: headers,
       body: payload,
       mode: 'cors',
-      cache: 'default'
+      cache: 'default',
+      credentials: 'include'
     };
 
     const myRequest = new Request ( 'http://localhost:3001/auth/login', init );
@@ -29,20 +30,22 @@ export const loginUser = (data) => {
     fetch( myRequest )
     .then( response => {
       if( !response.ok ) return Promise.reject();
-      return response.json();
-    }).then( json => {
-      console.log(json);
+      console.log(response.headers);
+      return response.text();
+    }).then( token => {
+      // localStorage.setItem('userToken', token);
+      // console.log(localStorage.userToken);
       // dispatch({
-      //   type: loginUser,
+      //   type: LOGIN_USER,
       //   payload: {
-      //     ...data
+      //     userLoggedIn: true
       //   }
       // });
     });
   }
 }
 
-export const getWeeks = () => {
+export const getWeeks = (userToken) => {
   return dispatch => {
     fetch( 'http://localhost:3001/api/weeks' )
     .then( response => {
@@ -50,6 +53,7 @@ export const getWeeks = () => {
       return response.json();
     })
     .then( json => {
+      console.log(json);
       dispatch({
         type: GET_WEEKS,
         payload: {

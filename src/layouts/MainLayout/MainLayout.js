@@ -10,6 +10,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className={styles.mainLayout}>
       <HeaderBar />
+
       <Categories />
       {children}
     </div>

@@ -1,5 +1,6 @@
 import {
   GET_WEEKS,
+  LOGIN_USER,
   GET_POSTS,
   UPVOTE_POST,
   SORT_BY_POPULARITY,
@@ -8,11 +9,14 @@ import {
 
 const initialState = [];
 
-// export function authReducer(state = initialState, action) {
-//   switch(action.type) {
-//     case
-//   }
-// }
+export function authReducer(state = initialState, action) {
+  switch(action.type) {
+    case LOGIN_USER:
+      return [
+        ...action.payload.userLoggedIn
+      ]
+  }
+}
 
 export function postsReducer(state = initialState, action) {
   switch (action.type) {
