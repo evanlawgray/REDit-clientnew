@@ -20,9 +20,9 @@ export const loginUser = (data) => {
       method: 'POST',
       headers: headers,
       body: payload,
-      mode: 'cors',
+      // mode: 'cors',
       cache: 'default',
-      credentials: 'cors'
+      credentials: 'include'
     };
 
     const myRequest = new Request ( 'http://localhost:3001/auth/login', init );
@@ -47,8 +47,17 @@ export const loginUser = (data) => {
 
 export const getWeeks = (userToken) => {
   return dispatch => {
-    fetch( 'http://localhost:3001/api/weeks' )
+
+    const init = {
+      method: 'GET',
+      credentials: 'include'
+    };
+
+    const myRequest = new Request ( 'http://localhost:3001/api/weeks', init );
+
+    fetch( myRequest )
     .then( response => {
+
       if ( !response.ok ) return Promise.reject();
       return response.json();
     })

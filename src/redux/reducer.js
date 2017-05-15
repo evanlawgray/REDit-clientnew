@@ -15,6 +15,7 @@ export function authReducer(state = initialState, action) {
       return [
         ...action.payload.userLoggedIn
       ]
+    default: return state;
   }
 }
 
